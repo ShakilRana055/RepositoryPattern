@@ -9,6 +9,7 @@ namespace RepositoryPattern.Pattern.Interfaces.IUnitOfWorks
     public interface IUnitOfWork:IDisposable
     {
         int Save();
-        ICategoryRepository Categories { get; }
+        ICategoryRepository Category { get; }
+        ISubCategoryRepository SubCategory { get; }
     }
 }

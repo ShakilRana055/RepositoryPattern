@@ -15,7 +15,8 @@ namespace RepositoryPattern.Pattern.Repositories.UnitOfWork
         public UnitOfWork( DatabaseConnection.DatabaseConnection databaseConnection)
         {
             context = databaseConnection;
-            Categories = new CategoryRepository(context); 
+            Category = new CategoryRepository(context);
+            SubCategory = new SubCategoryRepository(context);
         }
 
         #region SaveChanges
@@ -30,7 +31,8 @@ namespace RepositoryPattern.Pattern.Repositories.UnitOfWork
         #endregion
 
         #region Implementation
-        public ICategoryRepository Categories { get; private set; }
+        public ICategoryRepository Category { get; private set; }
+        public ISubCategoryRepository SubCategory { get; private set; }
         #endregion
     }
 }

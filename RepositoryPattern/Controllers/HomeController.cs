@@ -28,6 +28,17 @@ namespace RepositoryPattern.Controllers
             return View();
         }
 
+        public IActionResult SaveSubCategory()
+        {
+            SubCategory subCategory = new SubCategory()
+            {
+                CategoryId = 1,
+                Name = "Samsung",
+            };
+            _work.SubCategory.Save(subCategory);
+            int some = _work.Save();
+            return Json(true);
+        }
 
         public IActionResult SaveCategory()
         {
@@ -35,14 +46,14 @@ namespace RepositoryPattern.Controllers
             {
                 Name = "Mobile",
             };
-            _work.Categories.Save(category);
+            _work.Category.Save(category);
             int some = _work.Save();
             return Json(true);
         }
 
         public IActionResult CategoryList()
         {
-            var catrgoryList = _work.Categories.GetAll().ToList();
+            var catrgoryList = _work.Category.GetAll().ToList();
             return Json(catrgoryList);
         }
 
